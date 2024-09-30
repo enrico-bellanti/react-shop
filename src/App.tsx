@@ -3,6 +3,8 @@
 function App() {
   return (
     <div className="page">
+      <input type="text" />
+      <input type="text" className="error" />
       <h1 className="title">Shop</h1>
       <button className="btn">Button</button>
       <button className="btn" disabled>Button</button>
