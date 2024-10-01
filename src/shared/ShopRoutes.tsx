@@ -1,12 +1,5 @@
 import { Navigate, useRoutes } from "react-router-dom";
-import { CartPage } from "../pages/cart/CartPage";
-import { CheckoutPage } from "../pages/checkout/CheckoutPage";
-import { ThanksPage } from "../pages/checkout/ThanksPage";
-import { CMSPage } from "../pages/cms/CMSPage";
-import { CMSOrdersPage } from "../pages/cms/orders/CMSOrdersPage";
-import { CMSProductsPage } from "../pages/cms/products/CMSProductsPage";
-import { LoginPage } from "../pages/login/LoginPage";
-import { ShopPage } from "../pages/shop/ShopPage";
+import { CartPage, CheckoutPage, CMSOrdersPage, CMSPage, CMSProductsPage, LoginPage, ShopPage, ThanksPage } from "../pages";
 
 export function ShopRoutes(){
     return  useRoutes([

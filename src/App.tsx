@@ -1,7 +1,5 @@
 import { BrowserRouter } from "react-router-dom"
-import { ShopRoutes } from "./shared/ShopRoutes"
-import { NavBar } from "./shared/components/core/NavBar"
-
+import { NavBar, ShopRoutes } from "./shared"
 
 function App() {
   return (
