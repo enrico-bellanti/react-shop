@@ -1,21 +1,36 @@
-import PocketBase from 'pocketbase';
-
-export const pb = new PocketBase('http://127.0.0.1:8090')
+import { useEffect, useState } from 'react';
+import { Product } from '../../model/product';
+import { pb } from '../../pocketbase';
+import { ProductCard } from './components/ProductCard';
 
 export function ShopPage(){
-    function loadData(){
-        pb.collection('products').getList()
-            .then(res => {
-                console.log(res);
-                
-            })
+    const [products, setProducts] = useState<Product[]>([])
+
+    useEffect(() => {
+        loadData()
+    }, [])
+
+    function addToCart(product: Partial<Product>){
+        console.log(product);
+        
     }
+
+    function loadData(){
+        pb.collection('products').getList<Product>()
+            .then(res => setProducts(res.items))
+    }
+
     return (
         <div>
             <h1 className="title">Shop</h1>
-            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-16">
+            {
+                products.map(p => (
+                    <ProductCard key={p.id} product={p} onAddToCart={addToCart}></ProductCard>
+                ))
+            }
+            </div>
 
-            <button onClick={loadData} className="btn">load data</button>
         </div>
     )
 }
