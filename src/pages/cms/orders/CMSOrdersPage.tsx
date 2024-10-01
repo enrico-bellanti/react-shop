@@ -1,7 +1,8 @@
 export function CMSOrdersPage() {
     return (
         <div>
-            CMS orders
+            <h1 className="title">CMS orders</h1>
+            Content
         </div>
     )
 }

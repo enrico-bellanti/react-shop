@@ -1,7 +1,8 @@
 export function CMSProductsPage() {
     return (
         <div>
-            CMS products
+            <h1 className="title">CMS products</h1>
+            content
         </div>
     )
 }

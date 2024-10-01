@@ -1,10 +1,13 @@
 import { BrowserRouter } from "react-router-dom"
-import { ShopRoutes } from "./core/ShopRoutes"
+import { ShopRoutes } from "./shared/ShopRoutes"
+import { NavBar } from "./shared/components/core/NavBar"
 
 
 function App() {
   return (
-    <BrowserRouter>    
+    <BrowserRouter>
+      <NavBar></NavBar>
+      <hr />
       <div className="page">
         <ShopRoutes></ShopRoutes>
       </div>

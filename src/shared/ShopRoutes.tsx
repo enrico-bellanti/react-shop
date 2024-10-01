@@ -43,7 +43,7 @@ export function ShopRoutes(){
                     element: <CMSOrdersPage></CMSOrdersPage>
                 },
                 {
-                    path: '/',
+                    path: '',
                     element: <Navigate to="products"></Navigate>
                 }
             ]
