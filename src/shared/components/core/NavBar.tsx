@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import logo from '../../../assets/react-shop-logo.png';
+import { CartPanel } from "./CartPanel";
 
 export function NavBar(){
     // const navigate = useNavigate();
@@ -16,6 +17,10 @@ export function NavBar(){
                     </button>
                 </div>
 
+                {/*Cart Panel*/}
+                <CartPanel></CartPanel>
+
+                {/*action button*/}
                 <div className="fixed bottom-2 right-2 p-5">
                     <NavLink to="login" className="btn accent lg">login</NavLink>
                     <NavLink to="cms" className="btn accent lg">cms</NavLink>
