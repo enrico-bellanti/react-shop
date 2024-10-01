@@ -1,11 +1,14 @@
-import { ShopPage } from "./pages/shop/ShopPage"
+import { BrowserRouter } from "react-router-dom"
+import { ShopRoutes } from "./core/ShopRoutes"
 
 
 function App() {
   return (
-    <div className="page">
-      <ShopPage></ShopPage>
-    </div>
+    <BrowserRouter>    
+      <div className="page">
+        <ShopRoutes></ShopRoutes>
+      </div>
+    </BrowserRouter>
   )
 }
 
