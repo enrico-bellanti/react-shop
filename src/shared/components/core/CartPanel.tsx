@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import { useCart, useCartPanel } from "../../../services/cart";
+import { selectCartList, selectTotalCartCost, useCart, useCartPanel } from "../../../services/cart";
 
 export function CartPanel(){
     const navigate = useNavigate();
     const closeCartPanel = useCartPanel(state => state.closeOverlay)
 
-    const list = useCart(state => state.list)
+    const list = useCart(selectCartList)
+    const totalCartCost = useCart(selectTotalCartCost)
 
     function gotoCart(): void {
         navigate('cart')
@@ -31,7 +32,7 @@ export function CartPanel(){
                 }
 
                 <div className="flex justify-end text-xl font-bold my-3">
-                    Total: $ 20
+                    Total: $ {totalCartCost}
                 </div>
 
                 <div className="flex justify-center">
