@@ -32,6 +32,9 @@ export function useCheckout() {
             total: totalCartCost
         }
 
+        console.log(orderInfo);
+
+
         clearCart()
         navigate('/thankyou')
 

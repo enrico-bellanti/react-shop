@@ -1,5 +1,6 @@
 import { Navigate, useRoutes } from "react-router-dom";
 import { CartPage, CheckoutPage, CMSOrdersPage, CMSPage, CMSProductsPage, LoginPage, ShopPage, ThanksPage } from "../pages";
+import { PrivateRoute } from "./components/auth/PrivateRoute";
 
 export function ShopRoutes(){
     return  useRoutes([
@@ -25,7 +26,7 @@ export function ShopRoutes(){
         },
         {
             path: 'cms',
-            element: <CMSPage></CMSPage>,
+            element: <PrivateRoute><CMSPage></CMSPage></PrivateRoute>,
             children: [
                 {
                     path: 'products',
