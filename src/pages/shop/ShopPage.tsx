@@ -17,12 +17,6 @@ export function ShopPage(){
         loadData()
     }, [])
 
-    // function addToCart(product: Partial<Product>){
-    //     console.log(product);
-    //     openCartPanel()
-        
-    // }
-
     function loadData(){
         setPending(true)
         pb.collection('products').getList<Product>()

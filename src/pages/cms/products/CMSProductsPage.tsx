@@ -1,22 +1,29 @@
+import { useEffect } from "react"
 import { useProductsService } from "../../../services/products"
+import { ServerError, Spinner } from "../../../shared"
+import { CMSProductsList } from "./components/CMSProductsList"
 
 export function CMSProductsPage() {
     const {state, actions} = useProductsService()
 
+    useEffect(() => {
+        actions.getProducts()
+    }, [])
+
     return (
         <div>
-        <h1 className="title">CMS</h1>
+            <h1 className="title">CMS</h1>
 
-        Pagina Prodotti
+            {state.pending && <Spinner></Spinner>}
+            {state.error && <ServerError message={state.error}></ServerError>}
+            
+            <CMSProductsList 
+                items={state.products}
+                activeItem={state.activeItem}
+                onEditItem={actions.setActiveItem}
+                onDeleteItem={actions.deleteProduct}
+            />
 
-        <hr className="my-8"/>
-
-        {state.pending && <div>loading...</div>}
-        {state.error && <div>{state.error}</div>}
-
-        <button className="btn primary" onClick={actions.getProducts}>GET</button>
-
-        <pre>{JSON.stringify(state, null, 2)}</pre>
         </div>
     )
 }
