@@ -1,7 +1,9 @@
+import { ClientResponseError } from "pocketbase";
 import React, { ChangeEvent, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { OrderForm } from "../../../model/order-form";
 import { selectCartList, selectTotalCartCost, useCart } from "../../../services/cart";
+import { useOrdersService } from "../../../services/orders";
 
 export const EMAIL_REGEX = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -12,6 +14,7 @@ export function useCheckout() {
 
     const totalCartCost = useCart(selectTotalCartCost)
     const order = useCart(selectCartList)
+    const { state, actions } = useOrdersService()
 
     const clearCart = useCart(state => state.clearCart);
     const navigate = useNavigate();
@@ -32,11 +35,15 @@ export function useCheckout() {
             total: totalCartCost
         }
 
-        console.log(orderInfo);
+        actions.addOrder(orderInfo)
+            .then((res) => {
+                if (!(res instanceof ClientResponseError)) {
+                    clearCart()
+                    navigate('/thankyou')
+                }
+            })
 
 
-        clearCart()
-        navigate('/thankyou')
 
     }
 
@@ -56,6 +63,7 @@ export function useCheckout() {
         },
         user,
         dirty,
-        totalCartCost
+        totalCartCost,
+        error: state.error
     }
 }    

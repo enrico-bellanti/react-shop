@@ -33,7 +33,7 @@ export function useOrdersService() {
         dispatch({ type: 'pending', payload: true })
 
         try {
-            await OrdersService.add(order);
+            return await OrdersService.add(order);
         } catch (e) {
             dispatch({ type: 'error', payload: 'Order not added' })
             return e;
