@@ -9,3 +9,6 @@ export { ShopRoutes } from "./ShopRoutes";
 export { IfLogged } from './components/auth/IfLogged';
 export { PrivateRoute } from './components/auth/PrivateRoute';
 
+//hooks
+export { useCloudinary } from './components/hooks/useCloudinary';
+

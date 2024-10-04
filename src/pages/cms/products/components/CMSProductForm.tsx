@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { Product } from "../../../../model/product";
+import { useCloudinary } from "../../../../shared";
 
 interface CMSProductFormProps {
     activeItem: Partial<Product> | null;
@@ -12,7 +13,9 @@ interface CMSProductFormProps {
 const initialState: Partial<Product> = {
     name: '',
     cost: 0,
-    description: ''
+    description: '',
+    img: '',
+    tmb: ''
 }
 
 export function CMSProductForm(props: CMSProductFormProps){
@@ -34,6 +37,8 @@ export function CMSProductForm(props: CMSProductFormProps){
     const [formData, setFormData] = useState(initialState)
     const [dirty, setDirty] = useState(false)
 
+    const {openWidget} = useCloudinary()
+
     function changeHandler(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
         const name = e.target.name
         const value = e.target.value
@@ -50,6 +55,13 @@ export function CMSProductForm(props: CMSProductFormProps){
             //save
             onAdd(formData)
         }
+    }
+
+    function uploadHandler(){
+        openWidget()
+            .then(({img, tmb}) => {
+                setFormData(s => ({ ...s, img, tmb }))
+            })
     }
 
     const isNameValid =formData.name?.length
@@ -120,6 +132,10 @@ export function CMSProductForm(props: CMSProductFormProps){
                         value={formData?.description} 
                         onChange={changeHandler}
                     ></textarea>
+
+                    <button className="btn primary" type="button" onClick={uploadHandler}>
+                        UPLOAD IMAGE
+                    </button>
                 </div>
             </form>
 
