@@ -27,6 +27,7 @@ This is a prototype showcasing real-world context management and best practices 
 - TypeScript
 - Tailwind CSS
 - Zustand (State Management)
+- Pocket Base SDK (FrontEnd)
 - Pocket Base CMS (Backend)
 
 ### Project Setup
