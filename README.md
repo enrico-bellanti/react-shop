@@ -27,7 +27,7 @@ This is a prototype showcasing real-world context management and best practices 
 - TypeScript
 - Tailwind CSS
 - Zustand (State Management)
-- Custom Go CMS (Backend)
+- Pocket Base CMS (Backend)
 
 ### Project Setup
 
