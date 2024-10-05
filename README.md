@@ -1,4 +1,4 @@
-### 🛒 E-commerce Prototype with React & TypeScript [💻Live Version](<!-- Inserisci qui il link alla versione deployata-->)
+### 🛒 E-commerce Prototype with React & TypeScript [💻Live Version](https://react-shop-saal.vercel.app/shop)
 
 This project demonstrates the implementation of best practices for building a scalable e-commerce application using React and TypeScript. It prioritizes minimal dependencies, focusing on creative solutions without relying heavily on third-party libraries.
 
