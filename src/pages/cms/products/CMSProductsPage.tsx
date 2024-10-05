@@ -13,7 +13,7 @@ export function CMSProductsPage() {
 
     return (
         <div>
-            <h1 className="title">CMS</h1>
+            <h1 className="title">Products</h1>
 
             {state.pending && <Spinner></Spinner>}
             {state.error && <ServerError message={state.error}></ServerError>}

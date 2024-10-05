@@ -4,8 +4,8 @@ export function useCloudinary() {
         return new Promise((resolve, reject) => {
             const uploadWidget = window.cloudinary.openUploadWidget(
                 {
-                    cloudName: 'dyw9zauue',
-                    uploadPreset: 'ml_default',
+                    cloudName: import.meta.env.VITE_CLOUDINARY_CLOUD_NAME,
+                    uploadPreset: import.meta.env.VITE_CLOUDINARY_PRESET,
                     sources: ['local', 'camera', 'url']
                 },
                 function (error: any, result: any) {

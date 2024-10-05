@@ -5,7 +5,6 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar></NavBar>
-      <hr />
       <div className="page">
         <ShopRoutes></ShopRoutes>
       </div>

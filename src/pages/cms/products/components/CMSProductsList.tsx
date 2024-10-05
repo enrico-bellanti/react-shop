@@ -36,7 +36,7 @@ export function CMSProductsList(props: CMSProductsListProps){
                                 >
                                     <td>{item.name}</td>
                                     <td>
-                                        { item.tmb && <img src={item.tmb} alt={item.name} className="h-16 rounded-xl"/>}
+                                        { item.tmb && <img src={item.tmb} alt={item.name} className="h-16 w-24 rounded-xl object-cover"/>}
                                     </td>
                                     <td className="text-center">$ {item.cost}</td>
                                     <td className="text-center">

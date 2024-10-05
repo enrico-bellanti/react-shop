@@ -47,7 +47,7 @@ export function useOrdersService() {
             const res = await OrdersService.toggleStatus(id, status);
             dispatch({ type: 'orderToggleStatusSuccess', payload: res })
         } catch (e) {
-            dispatch({ type: 'error', payload: 'Order not deleted' })
+            dispatch({ type: 'error', payload: 'Order not updated' })
         }
     }
 

@@ -1,7 +1,7 @@
 import { pb } from '../../pocketbase'
 
 export async function login(username: string, password: string) {
-    return pb.admins.authWithPassword(username, password)
+    return pb.collection('users').authWithPassword(username, password)
 }
 
 export async function logout() {

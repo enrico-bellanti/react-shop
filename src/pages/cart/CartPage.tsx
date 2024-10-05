@@ -8,6 +8,7 @@ export function CartPage(){
 
     const increaseQty = useCart(state => state.increaseQty)
     const decreaseQty = useCart(state => state.decreaseQty)
+    
     return (
         <div>
             <h1 className="title">Cart</h1>
@@ -20,7 +21,7 @@ export function CartPage(){
                             className="flex items-center justify-between gap-3 my-3 border-b py-3 border-blue-400"
                         >   
                             <div className="flex flex-col sm:flex-row items-center gap-3">
-                                <img className="w-24 rounded-xl" src={cartItem.product.tmb} alt={cartItem.product.name} />
+                                <img className="w-24 h-16 rounded-xl object-cover" src={cartItem.product.tmb} alt={cartItem.product.name} />
                                 <div className="font-bold">{cartItem.product.name}</div>
                             </div>
 
